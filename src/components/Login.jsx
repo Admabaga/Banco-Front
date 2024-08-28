@@ -1,7 +1,11 @@
 export function Login(){
     return(
-        <div>
-            <p>Holis este es el Login</p>
-        </div>
+        <div className="formulario">
+        <form >
+            <input type="text"  placeholder="Ingresa tu usuario" />
+            <input type="password"  placeholder="Ingresa tu contraseña" />
+            <button type="submit" value="Registrar"  >Ingresar</button>         
+        </form>     
+    </div>
     )
 }
