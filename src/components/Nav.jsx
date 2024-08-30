@@ -8,60 +8,41 @@ import { Retiro } from "./Retiro"
 import { Transferencia } from "./Transferencia"
 
 
- export function Navbar(){
-    const [eleccion, setEleccion] = useState('')
-    let selector = () =>{
-        switch (eleccion){
-            case'registro':
-                return(<div><Registro></Registro></div>)
-            case'login':
-                return(<div><Login></Login></div>)
-            default:
-                return null
-        }
-        
-    }
-    return(
-        <div>
+const opcionesNavInit = [
+    { label: "Registro", value: "registro", component: <Registro /> },
+    { label: "Inicio Sesión", value: "login", component: <Login /> }
+  ];
+  
+  const opcionesNavHome = [
+    { titulo: "Transferencias", valor: "transferencia", componenteRender: <Transferencia /> },
+    { titulo: "Retiros", valor: "retiro", componenteRender: <Retiro /> },
+    { titulo: "Consignaciones", valor: "consignacion", componenteRender: <Consignacion /> },
+    { titulo: "Movimientos", valor: "historial", componenteRender: <Historial /> }
+  ];
+  
+  const Navbar = ({ options }) => {
+    const [opcionSelecta, setOpcionSelecta] = useState("");
+  
+    const renderizarComponenteMain = () => {
+      const selected = options.find(option => option.valor === opcionSelecta);
+      return selected ? selected.componenteRender : null;
+    };
+  
+    return (
+      <>
         <nav>
-            <ul>
-                <li onClick={()=>setEleccion("registro")}>Registro</li>
-                <li onClick={()=>setEleccion("login")}>Inicio Sesion</li>
-            </ul>
+          <ul>
+            {options.map(({ titulo, valor }) => (
+              <li key={valor} onClick={() => setOpcionSelecta(valor)}>
+                {titulo} 
+              </li>
+            ))}
+          </ul>
         </nav>
-        <div id="main">{selector()}</div>
-        </div>
-    )
-
-}
-
-export function NavHome(){
-    const [eleccion, setEleccion] = useState('')
-    let option = () =>{
-        switch (eleccion){
-            case'transferencia':
-                return(<div><Transferencia></Transferencia></div>)
-            case'retiro':
-                return(<div><Retiro></Retiro></div>)
-            case'consignacion':
-                return(<div><Consignacion></Consignacion></div>)
-            case'historial':
-                return(<div><Historial></Historial></div>)
-            default:
-                return null
-        }
-    }
-    return(
-        <div>
-            <nav>
-                <ul>
-                    <li onClick={()=>setEleccion("transferencia")}>Transferencias</li>
-                    <li onClick={()=>setEleccion("retiro")}>Retiros</li>
-                    <li onClick={()=>setEleccion("consignacion")}>Consignaciones</li>
-                    <li onClick={()=>setEleccion("historial")}>Movimientos</li>
-                </ul>
-            </nav>
-            <div id="main">{option()}</div>
-        </div>
-    )
-}
+        <div id="main">{renderizarComponenteMain()}</div>
+      </>
+    );
+  };
+  
+  export const NavbarMain = () => <Navbar options={opcionesNavInit} />;
+  export const NavHome = () => <Navbar options={opcionesNavHome} />;
