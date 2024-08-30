@@ -9,8 +9,8 @@ import { Transferencia } from "./Transferencia"
 
 
 const opcionesNavInit = [
-    { label: "Registro", value: "registro", component: <Registro /> },
-    { label: "Inicio Sesión", value: "login", component: <Login /> }
+    { titulo: "Registro", valor: "registro", componenteRender: <Registro /> },
+    { titulo: "Inicio Sesión", valor: "login", componenteRender: <Login /> }
   ];
   
   const opcionesNavHome = [
