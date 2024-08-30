@@ -1,30 +1,78 @@
 import { Usuario } from "../Entidades/Usuario";
+import { useState } from "react";
 
 export function Registro(){
-    let usuario = new Usuario
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        usuario[name] = value;
-      };
+    const [nombre, setUsername] = useState('');
+    const [correo, setEmail] = useState('');
+    const [apellido, setApellidos] = useState('');
+    const [cedula, setId] = useState('');
+    const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+try {
+      console.log('Datos antes de enviar:', { nombre, apellido, cedula, correo, password });
+      
+      const response = await fetch('http://localhost:8080/usuarios', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ nombre, apellido, cedula, correo, password }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al registrar el usuario');
+      }
+
+      const result = await response.json();
+      console.log('Respuesta del servidor:', result);
+      setMessage(result.message || 'Usuario registrado con éxito');
+
+    } catch (error) {
+      console.error('Error:', error);
+      setMessage('Error al registrar el usuario');
+    }
+  };
     
-      const handleSubmit = (event) => {
-        event.preventDefault(); // Prevenir la recarga de la página
-        console.log(usuario); // Aquí puedes manejar los datos del formulario
-      };
     return(
         <div className="formulario">
             <form onSubmit={handleSubmit}>
-                <input type="text" onChange={handleChange} value={usuario.nombre} placeholder="Ingresa tus nombres completos" />
-                <input type="text" onChange={handleChange} placeholder="Ingresa tus apellidos completos" />
-                <input type="number" onChange={handleChange} placeholder="Ingresa tu numero de identificacion" />
-                <input type="email" onChange={handleChange} placeholder="Ingresa tu correo" />
-                <input type="password" onChange={handleChange} placeholder="Ingresa tu contraseña" />
-                <button type="submit" value="Registrar"  onClick={Registrar()}>Registrarse</button>         
-            </form>     
+                <input
+                    type="text"
+                    value={nombre}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="Ingresa tus nombres completos"
+                />
+                <input
+                    type="text"
+                    value={apellido}
+                    onChange={(e) => setApellidos(e.target.value)}
+                    placeholder="Ingresa tus apellidos completos"
+                />
+                <input
+                    type="number"
+                    value={cedula}
+                    onChange={(e) => setId(e.target.value)}
+                    placeholder="Ingresa tu numero de identificacion"
+                />
+                <input
+                    type="email"
+                    value={correo}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Ingresa tu correo"
+                />
+                <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Ingresa tu contraseña"
+                />
+                <button type="submit">Registrarse</button>
+                {message && <p>{message}</p>}
+            </form>
         </div>
     )
 }
 
-function Registrar(){
-
-}
