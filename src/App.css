@@ -1,82 +1,5 @@
-/*CUERPO APP*/
-#root {
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-}
-
-body{
-  background-color: #D9B19A;
-}
 
 
-/*NAV*/
-nav {
-  background-color: #40180F;
-  margin-top: 2px;
-  
-}
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
-}
-
-nav ul li {
-  color: white;
-  text-decoration: none;
-  padding: 15px;
-  display: block;
-}
-
-nav ul li:hover {
-  background-color: #555;
-}
-
-
-/*FORMULARIO*/
-.formulario{
-  background-color: #731810;
-  max-width: 350px;
-  margin: 40px auto;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.formulario form{
-  padding: 20px;
-  border-radius: 8px;
-}
-
-input {
-  width: 97%;
-  height: 40px;
-  margin-bottom: 15px;
-  padding: 5px;
-  border-radius: 10px;
-  font-size: 17px;
-}
-
-button[type="submit"] {
-  width: 100%;
-  height: 40px;
-  background-color: #f3431b;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button[type="submit"]:hover {
-  background-color: #bd2402;
-}
-
-
-/*HEADER*/
 .header{
   width: 100%;
   height: 165px;
@@ -101,7 +24,73 @@ button[type="submit"]:hover {
 
 }
 
+.navBar{
+  background-color: #A6A6A6;
+  
+}
 
+.nav .navTexto{
+  color: aliceblue;
+}
 
+.Main{
+  width: 65%;
+  height: auto;
+  margin: 15px;
+}
 
+.mainInformation{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cartaInformacion{
+  height: auto;
+  margin: 15px;
+  width: 30%;
+}
+
+input {
+  width: 97%;
+  height: 40px;
+  margin-bottom: 15px;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 17px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  height: 40px;
+  background-color: #735840;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+button[type="submit"]:hover {
+  background-color: #f3431b;
+}
+
+.navBarHome{
+  background-color: #eed6d6;
+}
+
+.bodyNav{
+  background-color: #ffffff;
+}
+
+.Formulario{
+  width: 40%;
+  max-width: 400px;
+  height: auto;
+  margin: 15px;
+  padding: 15px;
+  background-color: #D9B282;
+  border-radius: 5px;
+  justify-content: center;
+}
 
