@@ -37,7 +37,7 @@ function NavBar({estadoNav, cambiarEstadoNav}) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="nav">
             <Nav.Link onClick={cambioAConsignacion} className="navtTexto" >Consignaciones</Nav.Link>
-            <Nav.Link onClick={cambioATransferencia} className="navtTexto" >Transeferencias</Nav.Link>
+            <Nav.Link onClick={cambioATransferencia} className="navtTexto" >Transferencias</Nav.Link>
             <Nav.Link onClick={cambioARetiro} className="navtTexto" >Retiros</Nav.Link>
             <Nav.Link onClick={cambioAMovimientos} className="navtTexto" >Movimientos</Nav.Link>
             <NavDropdown title="Opciones" id="basic-nav-dropdown">
@@ -58,26 +58,26 @@ function NavBar({estadoNav, cambiarEstadoNav}) {
     
     {mostrarComponente === 'consignacion' &&
     <section className='mainInformation'>
-     <CartaMainConsignacion />
      <CartaInformacionCuenta/>
+     <CartaMainConsignacion />
      </section>
      }
     {mostrarComponente === 'retiro' &&
     <section className='mainInformation'>
-     <CartaMainRetiro />
      <CartaInformacionCuenta/>
+     <CartaMainRetiro />
      </section>
      }
     {mostrarComponente === 'transferencia' &&
      <section className='mainInformation'>
-     <CartaMainTransferencia />
      <CartaInformacionCuenta estado={"Activo"} saldo={100000} numeroCuenta={1017896354}/>
+     <CartaMainTransferencia />
      </section>
      }
     {mostrarComponente === 'movimientos' &&
      <section className='mainInformation'>
-     <CartaMainMovimiento />
-     <CartaInformacionCuenta/>
+     <CartaInformacionCuenta />
+     <CartaMainMovimiento/>
      </section>
      }
    
