@@ -35,7 +35,7 @@ function NavHome({estadoNav, cambiarEstadoNav}) {
       </Navbar>
 
       {mostrarComponente === 'registro' && <CartaMainRegistro />}
-      {mostrarComponente === 'login' && <CartaMainLogin />}
+      {mostrarComponente === 'login' && <CartaMainLogin cambioEstado ={cambiarestadoNavbar} estadoNav={estadoNav} />}
     </>
   );
 }

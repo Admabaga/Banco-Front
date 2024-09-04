@@ -15,11 +15,11 @@ function CartaMainRegistro() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
-if (form.checkValidity() === false) {
-  event.preventDefault();
-  event.stopPropagation();
-}
-setValidated(true);
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    setValidated(true);
 
 try {
   const response = await fetch('http://localhost:8080/usuarios', {
