@@ -36,7 +36,7 @@ function NavBar({estadoNav, cambiarEstadoNav}) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="nav">
-            <Nav.Link onClick={cambioAConsignacion} className="navtTexto" >Consignaciones</Nav.Link>
+            <Nav.Link onClick={cambioAConsignacion} className="navtTexto" >Recargas</Nav.Link>
             <Nav.Link onClick={cambioATransferencia} className="navtTexto" >Transferencias</Nav.Link>
             <Nav.Link onClick={cambioARetiro} className="navtTexto" >Retiros</Nav.Link>
             <Nav.Link onClick={cambioAMovimientos} className="navtTexto" >Movimientos</Nav.Link>
@@ -59,24 +59,26 @@ function NavBar({estadoNav, cambiarEstadoNav}) {
     {mostrarComponente === 'consignacion' &&
     <section className='mainInformation'>
      <CartaInformacionCuenta/>
-     <CartaMainConsignacion />
+     <CartaMainConsignacion 
+ 
+       />
      </section>
      }
     {mostrarComponente === 'retiro' &&
     <section className='mainInformation'>
      <CartaInformacionCuenta/>
-     <CartaMainRetiro />
+     <CartaMainRetiro  />
      </section>
      }
     {mostrarComponente === 'transferencia' &&
      <section className='mainInformation'>
-     <CartaInformacionCuenta estado={"Activo"} saldo={100000} numeroCuenta={1017896354}/>
+     <CartaInformacionCuenta />
      <CartaMainTransferencia />
      </section>
      }
     {mostrarComponente === 'movimientos' &&
      <section className='mainInformation'>
-     <CartaInformacionCuenta />
+     <CartaInformacionCuenta/>
      <CartaMainMovimiento/>
      </section>
      }

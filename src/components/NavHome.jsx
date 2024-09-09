@@ -28,14 +28,17 @@ function NavHome({estadoNav, cambiarEstadoNav}) {
             <Nav className="nav">
               <Nav.Link onClick={cambioARegistro} className="navtTexto">Registro</Nav.Link>
               <Nav.Link onClick={cambioAlogin} className="navtTexto">Inicio sesión</Nav.Link>
-              <Nav.Link onClick={cambiarestadoNavbar}>Inicio</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
 
       {mostrarComponente === 'registro' && <CartaMainRegistro />}
-      {mostrarComponente === 'login' && <CartaMainLogin cambioEstado ={cambiarestadoNavbar} estadoNav={estadoNav} />}
+      {mostrarComponente === 'login' && 
+      <CartaMainLogin 
+      cambioEstado ={cambiarestadoNavbar} 
+      estadoNav={estadoNav}
+       />}
     </>
   );
 }

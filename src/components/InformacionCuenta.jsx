@@ -1,7 +1,11 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import CuentaContext from './ProveedorInfo';
+import { useContext } from 'react';
 
-function CartaInformacionCuenta({saldo, estado, numeroCuenta}) {
+function CartaInformacionCuenta() {
+  const { cuentaInfo } = useContext(CuentaContext);
+
   return (
     <article className='cartaInformacion'> 
     <Card>
@@ -9,9 +13,9 @@ function CartaInformacionCuenta({saldo, estado, numeroCuenta}) {
         <Card.Title>Estado de cuenta</Card.Title>
       </Card.Body>
       <ListGroup className="list-group-flush">
-        <ListGroup.Item>Saldo: {saldo}</ListGroup.Item>
-        <ListGroup.Item>Estado: {estado}</ListGroup.Item>
-        <ListGroup.Item>Numero de cuenta: {numeroCuenta}</ListGroup.Item>
+        <ListGroup.Item>Saldo: {cuentaInfo.saldo}</ListGroup.Item>
+        <ListGroup.Item>Estado: {cuentaInfo.estado}</ListGroup.Item>
+        <ListGroup.Item>Numero de cuenta: {cuentaInfo.numeroCuenta}</ListGroup.Item>
       </ListGroup>
     </Card>
     </article>

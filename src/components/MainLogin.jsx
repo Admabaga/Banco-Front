@@ -1,11 +1,13 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import CuentaContext from './ProveedorInfo';
 
 function CartaMainLogin({cambioEstado, estadoNav}) {
   const [usuario, setUsuario] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const {setSaldo, actualizarCuentaId, actualizarNumeroCuenta, actualizarEstado } = useContext(CuentaContext);
 
    const handleSubmit = async (event) => {
     event.preventDefault();
@@ -25,17 +27,21 @@ function CartaMainLogin({cambioEstado, estadoNav}) {
     
       const responseData = await response.json();
       console.log('Respuesta del servidor:', response);
-      setMessage(responseData.message || 'Usuario registrado con éxito!');
-      const loggIn = responseData
+      const { estado, saldo, numeroCuenta, loggIn, idCuenta} = responseData;
+
       if(loggIn === true){
       cambioEstado(!estadoNav)
+      setSaldo(saldo)
+      actualizarCuentaId(idCuenta)
+      actualizarNumeroCuenta(numeroCuenta)
+      actualizarEstado(estado ? "Activa":"Inactiva")
       }else{
         setMessage("Usuario y/o contraseña incorrectos.")
       }
     
-    } catch (error) {
-      console.log(error)
-    }
+      } catch (error) {
+        setMessage(error.message)
+      }
     
     };
 
@@ -60,7 +66,7 @@ function CartaMainLogin({cambioEstado, estadoNav}) {
       <Button variant="primary" type="submit">
         Iniciar sesion
       </Button>
-      <Form.Control.Feedback>{message}</Form.Control.Feedback>
+      {message && <p className='procesoExitoso'>{message}</p>}
     </Form>
   );
 }

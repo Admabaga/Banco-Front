@@ -131,3 +131,9 @@ button[type="submit"]:hover {
   background-color: #D9B282;
   margin-top: 10px;
 }
+.procesoExitoso{
+  text-align: center;
+  margin: 15px;
+  font-size:larger;
+  color:rgb(84, 114, 57);
+}
