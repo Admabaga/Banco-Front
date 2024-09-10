@@ -4,7 +4,7 @@ export function Header(){
         <header className="header">
             <div className='contenedorHeader'>
                 <img src={LogoBanco} alt="" />
-                <h1>BANANTIOQUIA</h1>
+                <h1>Banantioquia</h1>
             </div>
         </header>
     )
