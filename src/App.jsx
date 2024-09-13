@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import  NavBar  from './components/NavBar.jsx'
 import NavHome from './components/NavHome.jsx'
 import { CuentaProvider } from './components/ProveedorInfo.jsx'
+import Footer from './components/Footer.jsx'
 
 function App() {
   const [estadoNav, setEstadoNav] = useState(false)
@@ -26,6 +27,7 @@ function App() {
         cambiarEstadoNav ={cambiarEstadoNav}></NavHome>
       }
       </CuentaProvider>
+      <Footer/>
       </>
   )
 }

@@ -26,19 +26,20 @@ function NavHome({estadoNav, cambiarEstadoNav}) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="nav">
-              <Nav.Link onClick={cambioARegistro} className="navtTexto">Registro</Nav.Link>
-              <Nav.Link onClick={cambioAlogin} className="navtTexto">Inicio sesión</Nav.Link>
+              <Nav.Link onClick={cambioARegistro} className="navtTexto" >Registro</Nav.Link>
+              <Nav.Link onClick={cambioAlogin} className="navtTexto" >Inicio sesión</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
+      <section className='mainFormularios'>
       {mostrarComponente === 'registro' && <CartaMainRegistro />}
       {mostrarComponente === 'login' && 
       <CartaMainLogin 
       cambioEstado ={cambiarestadoNavbar} 
       estadoNav={estadoNav}
        />}
+       </section>
     </>
   );
 }
