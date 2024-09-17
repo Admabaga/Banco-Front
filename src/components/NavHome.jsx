@@ -10,8 +10,8 @@ function NavHome() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="nav">
-              <Nav.Link to='/usuarios' className="navtTexto" >Registro</Nav.Link>
-              <Nav.Link to='/usuarios/log' className="navtTexto" >Inicio sesión</Nav.Link>
+              <Nav.Link href='/usuarios' className="navtTexto" >Registro</Nav.Link>
+              <Nav.Link href='/usuarios/log' className="navtTexto" >Inicio sesión</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
