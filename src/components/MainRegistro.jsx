@@ -22,7 +22,7 @@ function CartaMainRegistro() {
     setValidated(true);
 
 try {
-  const response = await fetch('http://localhost:8080/usuarios', {
+  const response = await fetch('https://banco-backend-znok.onrender.com/usuarios', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
