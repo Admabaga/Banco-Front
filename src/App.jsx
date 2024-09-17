@@ -7,8 +7,7 @@ import NavHome from './components/NavHome.jsx'
 import { CuentaProvider } from './components/ProveedorInfo.jsx'
 import Footer from './components/Footer.jsx'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import CartaMainRegistro
- from './components/MainRegistro.jsx'
+import CartaMainRegistro from './components/MainRegistro.jsx'
 import CartaMainLogin from './components/MainLogin.jsx'
 import { CartaMainConsignacion } from './components/MainConsignacion.jsx'
 import CartaMainRetiro from './components/MainRetiro.jsx'
@@ -37,7 +36,6 @@ function App() {
       }
         <Router>
           <Routes>
-            <Switch>
               <Route path={`/${estadoNav}/recargas`} element={
                     <section className='mainInformation'>
                     <CartaInformacionCuenta/>
@@ -63,7 +61,6 @@ function App() {
                 <CartaMainLogin 
                 cambioEstado ={cambiarEstadoNav} 
                 estadoNav={estadoNav}/>}></Route>
-            </Switch>
           </Routes>
         </Router>
       </CuentaProvider>
