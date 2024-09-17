@@ -10,7 +10,7 @@ export function CartaMainMovimiento(){
   useEffect(() => {
     const obtenerMovimientos = async () => {
       try {
-        const response = await fetch(`https://banco-backend-znok.onrender.com/${cuentaInfo.idCuenta}`, {
+        const response = await fetch(`https://banco-backend-znok.onrender.com/movimientos/${cuentaInfo.idCuenta}`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' }
         });
