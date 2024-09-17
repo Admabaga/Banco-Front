@@ -46,8 +46,8 @@ try {
 
 };
 
-
   return (
+    <section className='mainFormularios'>
     <Form className='Formulario' noValidate validated={validated} onSubmit={handleSubmit}>
       <Form.Group controlId="validationCustom01" className='formulario'>
         <Form.Label>Nombres:</Form.Label>
@@ -84,6 +84,7 @@ try {
       <Button type="submit">Registrarse</Button>
       <Form.Control.Feedback>{message}</Form.Control.Feedback>
     </Form>
+    </section>
   );
 }
 

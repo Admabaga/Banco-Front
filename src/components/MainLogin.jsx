@@ -46,6 +46,7 @@ function CartaMainLogin({cambioEstado, estadoNav}) {
     };
 
   return (
+    <section className='mainFormularios'>
     <Form className='Formulario' onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Correo electronico:</Form.Label>
@@ -68,6 +69,7 @@ function CartaMainLogin({cambioEstado, estadoNav}) {
       </Button>
       {message && <p className='procesoExitoso'>{message}</p>}
     </Form>
+    </section>
   );
 }
 
