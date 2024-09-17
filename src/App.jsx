@@ -25,9 +25,7 @@ function App() {
       <>
       <CuentaProvider>
       <Header></Header>
-
-        <Router>
-        {
+      {
         estadoNav ? 
         <NavBar 
         estadoNav = {estadoNav} 
@@ -36,23 +34,25 @@ function App() {
         estadoNav = {estadoNav} 
         cambiarEstadoNav ={cambiarEstadoNav}></NavHome>
       }
+        <Router>
+
           <Routes>
-              <Route path={`/${estadoNav}/recargas`} element={
+              <Route path={`/recargas`} element={
                     <section className='mainInformation'>
                     <CartaInformacionCuenta/>
                     <CartaMainConsignacion/>
                     </section>}></Route>
-              <Route path={`/${estadoNav}/retiros`} element={
+              <Route path={`/retiros`} element={
                     <section className='mainInformation'>
                     <CartaInformacionCuenta/>
                     <CartaMainRetiro/>
                     </section>}></Route>
-              <Route path={`/${estadoNav}/transferencias`} element={
+              <Route path={`/transferencias`} element={
                     <section className='mainInformation'>
                     <CartaInformacionCuenta/>
                     <CartaMainTransferencia/>
                     </section>}></Route>
-              <Route path={`/${estadoNav}/movimientos`} element={
+              <Route path={`/movimientos`} element={
                     <section className='mainInformation'>
                     <CartaInformacionCuenta/>
                     <CartaMainMovimiento/>
