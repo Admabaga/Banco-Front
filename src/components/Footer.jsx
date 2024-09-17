@@ -9,10 +9,12 @@ function Footer(){
       <div class="col-lg-4">
         <h3>Enlaces</h3>
         <ul>
+          <a href="www.linkedin.com/in/adrian-mauricio-barrera-garcia-a85881230">
             <li><img src={imgLinkedin} alt="" /></li>
-            <a href="https://github.com/Admabaga" target='blank'>
+          </a>
+          <a href="https://github.com/Admabaga" target='blank'>
             <li><img src={imgGit} alt="" /></li>
-            </a>
+          </a>
         </ul>
       </div>
       <div class="col-lg-4">
