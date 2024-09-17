@@ -16,7 +16,7 @@ import { CartaMainMovimiento } from './components/MainMovimientos.jsx'
 import CartaInformacionCuenta from './components/InformacionCuenta.jsx'
 
 function App() {
-  const [estadoNav, setEstadoNav] = useState(false)
+  const [estadoNav, setEstadoNav] = useState(true)
 
   const cambiarEstadoNav = (nuevoEstado)=>{
     setEstadoNav(nuevoEstado)
