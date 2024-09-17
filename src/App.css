@@ -75,6 +75,9 @@
   font-weight: bold; 
 }
 
+.navbar-toggler{
+  background-color: #656866d3 !important;
+}
 /*INFO MAIN*/
 .Main{
   width: 65%;
