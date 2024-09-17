@@ -15,10 +15,10 @@ function NavBar({estadoNav, cambiarEstadoNav}) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="nav">
-            <Nav.Link to={`/${estadoNav}/recargas`} className="navtTexto" >Recargas</Nav.Link>
-            <Nav.Link to={`/${estadoNav}/transferencias`} className="navtTexto" >Transferencias</Nav.Link>
-            <Nav.Link to={`/${estadoNav}/retiros`} className="navtTexto" >Retiros</Nav.Link>
-            <Nav.Link to={`/${estadoNav}/movimientos`} className="navtTexto" >Movimientos</Nav.Link>
+            <Nav.Link href={`/${estadoNav}/recargas`} className="navtTexto" >Recargas</Nav.Link>
+            <Nav.Link href={`/${estadoNav}/transferencias`} className="navtTexto" >Transferencias</Nav.Link>
+            <Nav.Link href={`/${estadoNav}/retiros`} className="navtTexto" >Retiros</Nav.Link>
+            <Nav.Link href={`/${estadoNav}/movimientos`} className="navtTexto" >Movimientos</Nav.Link>
             <NavDropdown title="Opciones" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
