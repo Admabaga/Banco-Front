@@ -12,7 +12,7 @@ function CartaMainRetiro() {
   const handleSubmit = async (event) => {
       event.preventDefault();
       try {
-        const response = await fetch(`https://banco-backend-znok.onrender.com/retiros/${cuentaInfo.idCuenta}`, {
+        const response = await fetch(`http://banco-backend-znok.onrender.com/retiros/${cuentaInfo.idCuenta}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

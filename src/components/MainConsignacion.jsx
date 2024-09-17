@@ -12,7 +12,7 @@ import CuentaContext from './ProveedorInfo';
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-          const response = await fetch(`https://banco-backend-znok.onrender.com/consignaciones/${cuentaInfo.idCuenta}`, {
+          const response = await fetch(`http://banco-backend-znok.onrender.com/consignaciones/${cuentaInfo.idCuenta}`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
