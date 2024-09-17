@@ -37,31 +37,33 @@ function App() {
       }
         <Router>
           <Routes>
-            <Route path={`/${estadoNav}/recargas`} element={
-                  <section className='mainInformation'>
-                  <CartaInformacionCuenta/>
-                  <CartaMainConsignacion/>
-                  </section>}></Route>
-            <Route path={`/${estadoNav}/retiros`} element={
-                  <section className='mainInformation'>
-                  <CartaInformacionCuenta/>
-                  <CartaMainRetiro/>
-                  </section>}></Route>
-            <Route path={`/${estadoNav}/transferencias`} element={
-                  <section className='mainInformation'>
-                  <CartaInformacionCuenta/>
-                  <CartaMainTransferencia/>
-                  </section>}></Route>
-            <Route path={`/${estadoNav}/movimientos`} element={
-                  <section className='mainInformation'>
-                  <CartaInformacionCuenta/>
-                  <CartaMainMovimiento/>
-                  </section>}></Route>
-            <Route path='/usuarios' element={<CartaMainRegistro/>}></Route>
-            <Route path='/usuarios/log' element={
-              <CartaMainLogin 
-              cambioEstado ={cambiarEstadoNav} 
-              estadoNav={estadoNav}/>}></Route>
+            <Switch>
+              <Route path={`/${estadoNav}/recargas`} element={
+                    <section className='mainInformation'>
+                    <CartaInformacionCuenta/>
+                    <CartaMainConsignacion/>
+                    </section>}></Route>
+              <Route path={`/${estadoNav}/retiros`} element={
+                    <section className='mainInformation'>
+                    <CartaInformacionCuenta/>
+                    <CartaMainRetiro/>
+                    </section>}></Route>
+              <Route path={`/${estadoNav}/transferencias`} element={
+                    <section className='mainInformation'>
+                    <CartaInformacionCuenta/>
+                    <CartaMainTransferencia/>
+                    </section>}></Route>
+              <Route path={`/${estadoNav}/movimientos`} element={
+                    <section className='mainInformation'>
+                    <CartaInformacionCuenta/>
+                    <CartaMainMovimiento/>
+                    </section>}></Route>
+              <Route path='/usuarios' element={<CartaMainRegistro/>}></Route>
+              <Route path='/usuarios/log' element={
+                <CartaMainLogin 
+                cambioEstado ={cambiarEstadoNav} 
+                estadoNav={estadoNav}/>}></Route>
+            </Switch>
           </Routes>
         </Router>
       </CuentaProvider>
