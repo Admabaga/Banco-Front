@@ -25,7 +25,9 @@ function App() {
       <>
       <CuentaProvider>
       <Header></Header>
-      {
+
+        <Router>
+        {
         estadoNav ? 
         <NavBar 
         estadoNav = {estadoNav} 
@@ -34,7 +36,6 @@ function App() {
         estadoNav = {estadoNav} 
         cambiarEstadoNav ={cambiarEstadoNav}></NavHome>
       }
-        <Router>
           <Routes>
               <Route path={`/${estadoNav}/recargas`} element={
                     <section className='mainInformation'>
