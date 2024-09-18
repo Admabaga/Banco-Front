@@ -1,9 +1,6 @@
-import { useState } from 'react'
 import { Header } from './components/Header.jsx'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import  NavBar  from './components/NavBar.jsx'
-import NavHome from './components/NavHome.jsx'
 import { CuentaProvider } from './components/ProveedorInfo.jsx'
 import Footer from './components/Footer.jsx'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
@@ -13,55 +10,25 @@ import { CartaMainConsignacion } from './components/MainConsignacion.jsx'
 import CartaMainRetiro from './components/MainRetiro.jsx'
 import { CartaMainTransferencia } from './components/MainTransferencia.jsx'
 import { CartaMainMovimiento } from './components/MainMovimientos.jsx'
-import CartaInformacionCuenta from './components/InformacionCuenta.jsx'
+import Lobby from './components/Lobby.jsx'
+import Home from './components/Home.jsx'
 
 function App() {
-  const [estadoNav, setEstadoNav] = useState(false)
 
-  const cambiarEstadoNav = (nuevoEstado)=>{
-    setEstadoNav(nuevoEstado)
-  }
     return (
       <>
       <CuentaProvider>
       <Header></Header>
-      {
-        estadoNav ? 
-        <NavBar 
-        estadoNav = {estadoNav} 
-        cambiarEstadoNav ={cambiarEstadoNav} ></NavBar>:
-        <NavHome  
-        estadoNav = {estadoNav} 
-        cambiarEstadoNav ={cambiarEstadoNav}></NavHome>
-      }
         <Router>
-
           <Routes>
-              <Route path={`/recargas`} element={
-                    <section className='mainInformation'>
-                    <CartaInformacionCuenta/>
-                    <CartaMainConsignacion/>
-                    </section>}></Route>
-              <Route path={`/retiros`} element={
-                    <section className='mainInformation'>
-                    <CartaInformacionCuenta/>
-                    <CartaMainRetiro/>
-                    </section>}></Route>
-              <Route path={`/transferencias`} element={
-                    <section className='mainInformation'>
-                    <CartaInformacionCuenta/>
-                    <CartaMainTransferencia/>
-                    </section>}></Route>
-              <Route path={`/movimientos`} element={
-                    <section className='mainInformation'>
-                    <CartaInformacionCuenta/>
-                    <CartaMainMovimiento/>
-                    </section>}></Route>
+              <Route path='/' element={<Lobby/>}></Route>
+              <Route path='/home' element={<Home/>}></Route>
+              <Route path={`/home/recargas`} element={<CartaMainConsignacion/>}></Route>
+              <Route path={`/home/retiros`} element={<CartaMainRetiro/>}></Route>
+              <Route path={`/home/transferencias`} element={<CartaMainTransferencia/>}></Route>
+              <Route path={`/home/movimientos`} element={<CartaMainMovimiento/>}></Route>
               <Route path='/usuarios' element={<CartaMainRegistro/>}></Route>
-              <Route path='/usuarios/log' element={
-                <CartaMainLogin 
-                cambioEstado ={cambiarEstadoNav} 
-                estadoNav={estadoNav}/>}></Route>
+              <Route path='/usuarios/log' element={<CartaMainLogin/>}></Route>
           </Routes>
         </Router>
       </CuentaProvider>

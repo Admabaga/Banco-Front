@@ -9,7 +9,9 @@ function Footer(){
       <div className="col-lg-4">
         <h3>Enlaces</h3>
         <ul>
+          <a href="https://www.linkedin.com/in/adrian-mauricio-barrera-garcia-a85881230" target='blank'>
             <li><img src={imgLinkedin} alt="" /></li>
+          </a>
           <a href="https://github.com/Admabaga" target='blank'>
             <li><img src={imgGit} alt="" /></li>
           </a>

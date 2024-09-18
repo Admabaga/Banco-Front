@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import NavHome from './NavHome';
 
 function CartaMainRegistro() {
   const [validated, setValidated] = useState(false);
@@ -47,6 +48,8 @@ try {
 };
 
   return (
+    <>
+    <NavHome></NavHome>
     <section className='mainFormularios'>
     <Form className='Formulario' noValidate validated={validated} onSubmit={handleSubmit}>
       <Form.Group controlId="validationCustom01" className='formulario'>
@@ -85,6 +88,7 @@ try {
       <Form.Control.Feedback>{message}</Form.Control.Feedback>
     </Form>
     </section>
+    </>
   );
 }
 
