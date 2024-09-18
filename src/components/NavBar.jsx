@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
     const navigate = useNavigate();
@@ -25,8 +26,7 @@ function NavBar() {
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item  onClick={navigate('/')}>
-                Cerrar sesion
+              <NavDropdown.Item><Link to={'/'}>Cerrar sesion</Link>
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
