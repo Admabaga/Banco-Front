@@ -12,8 +12,8 @@ function CartaMainLogin() {
   const {setSaldo, actualizarCuentaId, actualizarNumeroCuenta, actualizarEstado } = useContext(CuentaContext);
   const navigate = useNavigate();
 
-   const handleSubmit = async (event) => {
-    event.preventDefault();
+   const handleSubmit = async (evento) => {
+    evento.preventDefault();
     try {
       const response = await fetch('http://localhost:8080/usuarios/log', {
         method: 'POST',
@@ -58,7 +58,7 @@ function CartaMainLogin() {
         <Form.Control 
         type="email" 
         value={usuario}
-        onChange={(e) => setUsuario(e.target.value)}
+        onChange={(usuarioNombre) => setUsuario(usuarioNombre.target.value)}
         placeholder="Ingrese su correo electronico" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -66,7 +66,7 @@ function CartaMainLogin() {
         <Form.Control 
         type="password" 
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(password) => setPassword(password.target.value)}
         placeholder="Ingrese contraseña" />
       </Form.Group>
       <Button variant="primary" type="submit">

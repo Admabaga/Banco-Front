@@ -10,8 +10,8 @@ export default function TransferenciaForm(){
     const [cuentaReceptora, setCuentaReceptora] = useState('')
     const {actualizarSaldo, cuentaInfo}= useContext(CuentaContext)
   
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    const handleSubmit = async (evento) => {
+        evento.preventDefault();
         try {
           const response = await fetch(`https://banco-backend-znok.onrender.com/transferencias/${cuentaInfo.idCuenta}`, {
             method: 'POST',
@@ -48,13 +48,13 @@ export default function TransferenciaForm(){
             <Form.Label className='tituloMain'>Ingresa el numero de cuenta a transferir:</Form.Label>
             <Form.Group className="mb-3"
              value={cuentaReceptora}
-             onChange={(e) => setCuentaReceptora(e.target.value)} >
+             onChange={(cuentaReceptora) => setCuentaReceptora(cuentaReceptora.target.value)} >
             <Form.Control />
             </Form.Group>
             <Form.Label className='tituloMain'>Ingresa el valor a transferir:</Form.Label>
             <Form.Group className="mb-3"
              value={valor}
-             onChange={(e) => setvalor(e.target.value)} >
+             onChange={(valor) => setvalor(valor.target.value)} >
             <Form.Control />
             </Form.Group>
             <Button type="submit">Transferir</Button>   

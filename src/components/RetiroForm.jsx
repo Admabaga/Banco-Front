@@ -8,8 +8,8 @@ export default function RetiroForm() {
     const [message, setMessage] = useState('');
     const {actualizarSaldo, cuentaInfo}= useContext(CuentaContext)
   
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    const handleSubmit = async (evento) => {
+        evento.preventDefault();
         try {
           const response = await fetch(`https://banco-backend-znok.onrender.com/retiros/${cuentaInfo.idCuenta}`, {
             method: 'POST',
@@ -45,7 +45,7 @@ export default function RetiroForm() {
             <Form.Label className='tituloMain'>Ingresa tu valor a retirar:</Form.Label>
             <Form.Group className="mb-3"
             value={valor}
-            onChange={(e) => setvalor(e.target.value)} >
+            onChange={(valor) => setvalor(valor.target.value)} >
             <Form.Control />
             </Form.Group>
             <Button type="submit">Retirar</Button>   

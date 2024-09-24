@@ -13,17 +13,17 @@ function CartaMainRegistro() {
   const [message, setMessage] = useState('');
 
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const form = event.currentTarget;
+  const handleSubmit = async (evento) => {
+    evento.preventDefault();
+    const form = evento.currentTarget;
     if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
+      evento.preventDefault();
+      evento.stopPropagation();
     }
     setValidated(true);
 
 try {
-  const response = await fetch('https://banco-backend-znok.onrender.com/usuarios', {
+  const response = await fetch('http://localhost:8080/usuarios', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -56,31 +56,31 @@ try {
         <Form.Label>Nombres:</Form.Label>
         <Form.Control
          value={nombre}
-         onChange={(e) => setUsername(e.target.value)}
+         onChange={(nombreUsuario) => setUsername(nombreUsuario.target.value)}
          required type="text" placeholder="Ingrese sus nombres" />
         <Form.Control.Feedback>Dato valido!</Form.Control.Feedback>
         <Form.Label>Apellidos:</Form.Label>
         <Form.Control 
          value={apellido}
-         onChange={(e) => setApellidos(e.target.value)}
+         onChange={(apellidoUsuario) => setApellidos(apellidoUsuario.target.value)}
          required type="text" placeholder="Ingrese sus apellidos" />
         <Form.Control.Feedback>Dato valido!</Form.Control.Feedback>
         <Form.Label>Correo electronico:</Form.Label>
         <Form.Control 
          value={correo}
-         onChange={(e) => setEmail(e.target.value)}
+         onChange={(emailUsuario) => setEmail(emailUsuario.target.value)}
          required type="email" placeholder="Ingrese un correo electronico" />
         <Form.Control.Feedback>Dato valido!</Form.Control.Feedback>
         <Form.Label>Documento identificacion:</Form.Label>
         <Form.Control 
          value={cedula}
-         onChange={(e) => setId(e.target.value)}
+         onChange={(cedulaUsuario) => setId(cedulaUsuario.target.value)}
          required type="number" placeholder="Ingrese su cedula" />
         <Form.Control.Feedback>Dato valido!</Form.Control.Feedback>
         <Form.Label>Contraseña:</Form.Label>
         <Form.Control 
          value={password}
-         onChange={(e) => setPassword(e.target.value)}
+         onChange={(passwordUsuario) => setPassword(passwordUsuario.target.value)}
          required type="password" placeholder="Ingrese una contraseña" />
         <Form.Control.Feedback>Dato valido!</Form.Control.Feedback>
       </Form.Group>
