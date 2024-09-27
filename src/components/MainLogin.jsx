@@ -20,6 +20,7 @@ function CartaMainLogin() {
         headers: {
           'Content-Type': 'application/json'
         },
+        mode: 'cors',
         body: JSON.stringify({ usuario, password }),
       });
       

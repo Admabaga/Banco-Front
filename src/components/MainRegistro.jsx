@@ -28,6 +28,7 @@ try {
     headers: {
       'Content-Type': 'application/json'
     },
+    mode: 'cors',
     body: JSON.stringify({ nombre, apellido, cedula, correo, password }),
   });
   
