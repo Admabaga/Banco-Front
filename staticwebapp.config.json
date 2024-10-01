@@ -2,8 +2,7 @@
   "routes": [
     {
       "route": "/*",
-      "rewrite": "/",
-      "redirect": "/"
+      "rewrite": "/"
     }
   ]
 }
