@@ -13,7 +13,7 @@ export default function TransferenciaForm(){
     const handleSubmit = async (evento) => {
         evento.preventDefault();
         try {
-          const response = await fetch(`https://banco-backend-znok.onrender.com/transferencias/${cuentaInfo.idCuenta}`, {
+          const response = await fetch(`http://localhost:8080/transferencias/${cuentaInfo.idCuenta}`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

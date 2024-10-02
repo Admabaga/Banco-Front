@@ -1,11 +1,10 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import CuentaContext from './ProveedorInfo';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 function CartaInformacionCuenta() {
   const { cuentaInfo } = useContext(CuentaContext);
-
   return (
     <article className='cartaInformacion'> 
     <Card>

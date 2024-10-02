@@ -9,26 +9,23 @@ function CartaMainLogin() {
   const [usuario, setUsuario] = useState('')
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState('')
-  const { setSaldo, actualizarCuentaId, actualizarNumeroCuenta, actualizarEstado } = useContext(CuentaContext)
+  const { setSaldo, actualizarCuentaId, actualizarNumeroCuenta, actualizarEstado, setCuentaInfo} = useContext(CuentaContext)
   const navigate = useNavigate();
 
   const handleSubmit = async (evento) => {
-    evento.preventDefault()
+    evento.preventDefault();
     try {
-      const response = await fetch('https://banco-backend-znok.onrender.com/usuarios/log', {
+      const response = await fetch('http://localhost:8080/usuarios/log', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+          'Content-Type': 'application/json'
         },
         mode: 'cors',
         body: JSON.stringify({ usuario, password }),
       });
       
       if (!response.ok) {
-        const result = await response.json()
+        const result = await response.json();
         throw new Error(result.message);
       }
     
@@ -37,6 +34,7 @@ function CartaMainLogin() {
       const { estado, saldo, numeroCuenta, loggIn, idCuenta } = responseData
 
       if (loggIn === true) {
+        setCuentaInfo(responseData)
         setSaldo(saldo)
         actualizarCuentaId(idCuenta)
         actualizarNumeroCuenta(numeroCuenta)
@@ -50,7 +48,7 @@ function CartaMainLogin() {
     } catch (error) {
       setMessage(error.message)
     }
-  };
+  }
 
   return (
     <>
@@ -83,4 +81,4 @@ function CartaMainLogin() {
   );
 }
 
-export default CartaMainLogin;
+export default CartaMainLogin

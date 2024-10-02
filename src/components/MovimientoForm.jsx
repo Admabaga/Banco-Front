@@ -9,7 +9,7 @@ export default function MovimientoForm(){
     useEffect(() => {
       const obtenerMovimientos = async () => {
         try {
-          const response = await fetch(`https://banco-backend-znok.onrender.com/movimientos/${cuentaInfo.idCuenta}`, {
+          const response = await fetch(`http://localhost:8080/movimientos/${cuentaInfo.idCuenta}`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
           });
