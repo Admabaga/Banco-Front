@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Spinner from 'react-bootstrap/Spinner';
 import NavHome from './NavHome';
 
 function CartaMainRegistro() {
@@ -11,6 +12,7 @@ function CartaMainRegistro() {
   const [cedula, setId] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [cargando, setCargando] = useState(false);
 
 
   const handleSubmit = async (evento) => {
@@ -21,7 +23,7 @@ function CartaMainRegistro() {
       evento.stopPropagation();
     }
     setValidated(true);
-
+setCargando(true)
 try {
   const response = await fetch('https://banco-backend-znok.onrender.com/usuarios', {
     method: 'POST',
@@ -44,6 +46,8 @@ try {
 } catch (error) {
   setMessage(error.message);
 
+}finally{
+  setCargando(false)
 }
 
 };
@@ -86,7 +90,15 @@ try {
         <Form.Control.Feedback>Dato valido!</Form.Control.Feedback>
       </Form.Group>
       <Button type="submit">Registrarse</Button>
-      <Form.Control.Feedback>{message}</Form.Control.Feedback>
+        {cargando ? (
+              <div className="spinner-container">
+                 <Spinner animation="border" size="lg" />
+             </div>
+             ) : (
+             <>
+            {message && <p className='procesoExitoso'>{message}</p>}
+            </>
+        )}
     </Form>
     </section>
     </>

@@ -161,6 +161,14 @@ button:focus{
     margin: 15px;
 }
 
+.spinner-container {
+  display: flex !important; 
+  justify-content: center !important; 
+  align-items: center !important; 
+  margin: 15px !important;
+}
+
+
 /*FOOTER*/
 .footer {
   background-color: #262626;

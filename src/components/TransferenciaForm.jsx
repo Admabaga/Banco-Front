@@ -3,15 +3,18 @@ import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import { useState, useContext } from 'react';
 import CuentaContext from './ProveedorInfo';
+import Spinner from 'react-bootstrap/Spinner';
 
 export default function TransferenciaForm(){
     const [valor, setvalor] = useState('');
     const [message, setMessage] = useState('');
     const [cuentaReceptora, setCuentaReceptora] = useState('')
+    const [cargando, setCargando] = useState(false)
     const {actualizarSaldo, cuentaInfo}= useContext(CuentaContext)
   
     const handleSubmit = async (evento) => {
         evento.preventDefault();
+        setCargando(true)
         try {
           const response = await fetch(`http://localhost:8080/transferencias/${cuentaInfo.idCuenta}`, {
             method: 'POST',
@@ -34,6 +37,9 @@ export default function TransferenciaForm(){
      
         } catch (error) {
           setMessage(error.message)
+        }finally {
+          setCargando(false)
+          
         }
         
         };
@@ -60,7 +66,15 @@ export default function TransferenciaForm(){
             <Button type="submit">Transferir</Button>   
             </fieldset>
             </Form>
+            {cargando ? (
+              <div className="spinner-container">
+                 <Spinner animation="border" size="lg" />
+             </div>
+             ) : (
+             <>
             {message && <p className='procesoExitoso'>{message}</p>}
+            </>
+                  )}
         </Card.Body>
         </Card>
         </section>

@@ -3,17 +3,20 @@ import Form from 'react-bootstrap/Form';
 import { useState, useContext } from 'react';
 import CuentaContext from './ProveedorInfo';
 import { useNavigate } from 'react-router-dom';
+import Spinner from 'react-bootstrap/Spinner';
 import NavHome from './NavHome';
 
 function CartaMainLogin() {
   const [usuario, setUsuario] = useState('')
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState('')
+  const [cargando, setCargando] = useState(false)
   const { setSaldo, actualizarCuentaId, actualizarNumeroCuenta, actualizarEstado, setCuentaInfo} = useContext(CuentaContext)
   const navigate = useNavigate();
 
   const handleSubmit = async (evento) => {
     evento.preventDefault();
+    setCargando(true)
     try {
       const response = await fetch('http://localhost:8080/usuarios/log', {
         method: 'POST',
@@ -47,6 +50,8 @@ function CartaMainLogin() {
       
     } catch (error) {
       setMessage(error.message)
+    }finally{
+      setCargando(false)
     }
   }
 
@@ -74,7 +79,15 @@ function CartaMainLogin() {
           <Button variant="primary" type="submit">
             Iniciar sesion
           </Button>
-          {message && <p className='procesoExitoso'>{message}</p>}
+          {cargando ? (
+              <div className="spinner-container">
+                 <Spinner animation="border" size="lg" />
+             </div>
+             ) : (
+             <>
+            {message && <p className='procesoExitoso'>{message}</p>}
+            </>
+                  )}
         </Form>
       </section>
     </>

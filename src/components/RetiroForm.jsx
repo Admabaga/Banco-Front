@@ -1,15 +1,18 @@
 import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
+import Spinner from 'react-bootstrap/Spinner';
 import { useContext, useState } from 'react';
 import CuentaContext from './ProveedorInfo';
 export default function RetiroForm() {
     const [valor, setvalor] = useState('');
     const [message, setMessage] = useState('');
+    const [cargando, setCargando] = useState(false);
     const {actualizarSaldo, cuentaInfo}= useContext(CuentaContext)
   
     const handleSubmit = async (evento) => {
         evento.preventDefault();
+        setCargando(true)
         try {
           const response = await fetch(`https://banco-backend-znok.onrender.com/retiros/${cuentaInfo.idCuenta}`, {
             method: 'POST',
@@ -32,6 +35,8 @@ export default function RetiroForm() {
      
         } catch (error) {
           setMessage(error.message)
+        }finally{
+          setCargando(false)
         }
         
         };
@@ -51,7 +56,15 @@ export default function RetiroForm() {
             <Button type="submit">Retirar</Button>   
             </fieldset>
             </Form>
+            {cargando ? (
+              <div className="spinner-container">
+                 <Spinner animation="border" size="lg" />
+             </div>
+             ) : (
+             <>
             {message && <p className='procesoExitoso'>{message}</p>}
+            </>
+                  )}
         </Card.Body>
         </Card>
         </section>
