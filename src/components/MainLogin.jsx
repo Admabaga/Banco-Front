@@ -18,7 +18,7 @@ function CartaMainLogin() {
     evento.preventDefault();
     setCargando(true)
     try {
-      const response = await fetch('http://localhost:8080/usuarios/log', {
+      const response = await fetch('https://banco-backend-znok.onrender.com/usuarios/log', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
