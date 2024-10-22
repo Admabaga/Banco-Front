@@ -14,7 +14,7 @@ export default function RecargaForm(){
         evento.preventDefault();
         setCargando(true)
         try {
-          const response = await fetch(`https://banco-backend-znok.onrender.com/consignaciones/${cuentaInfo.idCuenta}`, {
+          const response = await fetch(`http://localhost:8080/consignaciones/${cuentaInfo.idCuenta}`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

@@ -1,4 +1,5 @@
-import React, { createContext, useEffect, useState } from 'react';
+
+/*import React, { createContext, useEffect, useState } from 'react';
 
 const CuentaContext = createContext();
 
@@ -50,6 +51,77 @@ export const CuentaProvider = ({ children }) => {
 
   return (
 <CuentaContext.Provider value={{ cuentaInfo, setSaldo, actualizarSaldo, actualizarCuentaId, actualizarNumeroCuenta, actualizarEstado, setCuentaInfo}}>
+      {children}
+    </CuentaContext.Provider>
+  );
+};
+
+export default CuentaContext;
+*/
+
+import React, { createContext, useEffect, useState } from 'react';
+
+const CuentaContext = createContext();
+
+export const CuentaProvider = ({ children }) => {
+  const initialCuentaInfo = {
+    numeroCuenta: '',
+    idCuenta: 0,
+    saldo: '',
+    estado: ''
+  };
+
+  // Obtener datos de localStorage si existen
+  const storedCuentaInfo = JSON.parse(localStorage.getItem('cuentaInfo')) || initialCuentaInfo;
+
+  const [cuentaInfo, setCuentaInfo] = useState(storedCuentaInfo);
+
+  const opciones = { minimumFractionDigits: 2, maximumFractionDigits: 2 };
+  const formato = new Intl.NumberFormat('en-US', opciones);
+
+  // Actualizar localStorage cuando se cambien los valores
+  useEffect(() => {
+    localStorage.setItem('cuentaInfo', JSON.stringify(cuentaInfo));
+  }, [cuentaInfo]);
+
+  const actualizarSaldo = (saldoActualizado) => {
+    console.log('Saldo actualizado:', saldoActualizado);
+    setCuentaInfo(prevState => ({
+      ...prevState,
+      saldo: formato.format(saldoActualizado)
+    }));
+  };
+
+  const setSaldo = (saldoActualizado) => {
+    setCuentaInfo(prevState => ({
+      ...prevState,
+      saldo: saldoActualizado
+    }));
+  };
+
+  const actualizarEstado = (estadoActualizado) => {
+    setCuentaInfo(prevState => ({
+      ...prevState,
+      estado: estadoActualizado
+    }));
+  };
+
+  const actualizarNumeroCuenta = (cuentaActualizada) => {
+    setCuentaInfo(prevState => ({
+      ...prevState,
+      numeroCuenta: cuentaActualizada
+    }));
+  };
+
+  const actualizarCuentaId = (idActualizado) => {
+    setCuentaInfo(prevState => ({
+      ...prevState,
+      idCuenta: idActualizado
+    }));
+  };
+
+  return (
+    <CuentaContext.Provider value={{ cuentaInfo, setSaldo, actualizarSaldo, actualizarCuentaId, actualizarNumeroCuenta, actualizarEstado, setCuentaInfo }}>
       {children}
     </CuentaContext.Provider>
   );
